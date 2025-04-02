@@ -1,4 +1,5 @@
-from typing import Dict, Union, Tuple
+from typing import Dict
+
 
 class TreeNode:
     def __init__(self, left=None, right=None):
@@ -7,18 +8,20 @@ class TreeNode:
 
     def children(self):
         return self.left, self.right
-    
+
     def __str__(self) -> str:
         return f"left: {self.left}, right: {self.right}"
+
 
 def get_characters_by_frequency(input_string: str) -> Dict[str, int]:
     table = dict()
     for character in input_string:
         if character.lower() in table:
-             table[character.lower()] += 1
+            table[character.lower()] += 1
         else:
             table[character.lower()] = 1
     return sorted(table.items(), key=lambda x: x[1], reverse=True)
+
 
 def get_huffman_tree(input_string: str) -> TreeNode:
     nodes = get_characters_by_frequency(input_string)
@@ -32,18 +35,19 @@ def get_huffman_tree(input_string: str) -> TreeNode:
 
     return nodes[0][0]
 
-def get_tree_code(node, binary_string: str='') -> Dict[str, str]:
+
+def get_tree_code(node, binary_string: str = "") -> Dict[str, str]:
     if type(node) is str:
         return {node: binary_string}
     left, right = node.children()
     codes_map = dict()
-    codes_map.update(get_tree_code(left, binary_string + '0'))
-    codes_map.update(get_tree_code(right, binary_string + '1'))
+    codes_map.update(get_tree_code(left, binary_string + "0"))
+    codes_map.update(get_tree_code(right, binary_string + "1"))
     return codes_map
-    
 
-if __name__ == '__main__':
-   input_string = "Some string with many e and t letters"
-   top_node = get_huffman_tree(input_string)
-   codes_map = get_tree_code(top_node)
-   print(codes_map)
+
+if __name__ == "__main__":
+    input_string = "Some string with many e and t letters"
+    top_node = get_huffman_tree(input_string)
+    codes_map = get_tree_code(top_node)
+    print(codes_map)
