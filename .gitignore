@@ -1,0 +1,7 @@
+# Cache files:
+__pycache__
+
+# Environment variables:
+.env
+
+.DS_Store
