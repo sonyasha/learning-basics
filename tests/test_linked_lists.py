@@ -1,6 +1,6 @@
 import unittest
 
-from data_structures_algorithms.linked_lists import DoublyLinkedList, DoublyNode, Node, SinglyLinkedList
+from data_structures_algorithms.lists import DoublyLinkedList, DoublyNode, Node, SinglyLinkedList
 
 
 class TestNode(unittest.TestCase):
