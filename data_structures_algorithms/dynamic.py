@@ -153,7 +153,7 @@ class LCSMatrix:
             try:
                 return self.matrix[row_index][column_index][0]
             except Exception:
-                pass
+                print("Error: Invalid matrix entry")
         return 0
 
     # Returns the number of rows in the matrix, which also equals the length

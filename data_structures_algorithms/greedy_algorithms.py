@@ -64,7 +64,7 @@ def generate_items(num_items: int = 5) -> List[Item]:
     """Generate a specified number of random items."""
     items = []
     for _ in range(num_items):
-        items.append(Item(randint(1, 30), randint(5, 20)))
+        items.append(Item(randint(1, 30), randint(5, 20)))  # nosec
     return items
 
 
